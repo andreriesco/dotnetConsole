@@ -47,8 +47,9 @@ jobs:
       name: Build Application
       run: |
         cd ..
+        ls
         docker run --rm -t -v ${PWD}:/workspaces/dotnetConsole --env-file \ 
-        ./dotnetConsole/appconfig_0/containerEnv mcr.microsoft.com/dotnet/sdk:6.0 bash -c \
+        ./appconfig_0/containerEnv mcr.microsoft.com/dotnet/sdk:6.0 bash -c \
         "cd /workspaces/dotnetConsole && dotnet build ./dotnetConsole.csproj && dotnet publish -r linux-arm -o ./appconfig_0/work/dotnetConsole ./dotnetConsole.csproj"
     -
       name: Run application
