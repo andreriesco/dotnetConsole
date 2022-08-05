@@ -1,0 +1,1 @@
+"docker run --rm -t -v ${PWD}:/app --env-file /home/andreriesco/Documents/IDEExtension/test-applications/example/dotnetConsole/appconfig_0/containerEnv mcr.microsoft.com/dotnet/sdk:6.0 bash -c \"cd /app && dotnet build ./dotnetConsole.csproj && dotnet publish -r linux-arm -o ./appconfig_0/work/dotnetConsole ./dotnetConsole.csproj\""
