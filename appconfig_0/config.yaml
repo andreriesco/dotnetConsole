@@ -12,12 +12,12 @@ extraparms:
     release: {}
 id: 5e22d5fd-4fd0-4ceb-87e1-ba3af877a732
 images:
-    debug: ''
+    debug: sha256:9e8fedea9d5f72665d275e925b9454e186f62d58e544be1f03aa70612ebbc2cc
     release: ''
 imagetags:
     debug: dotnetconsole_arm32v7-dotnet-60_bullseye_debug_5e22d5fd-4fd0-4ceb-87e1-ba3af877a732
     release: dotnetconsole_arm32v7-dotnet-60_bullseye_release_5e22d5fd-4fd0-4ceb-87e1-ba3af877a732
-modificationdate: '2022-08-05T23:16:25.149535'
+modificationdate: '2022-08-08T17:25:08.102229'
 networks:
     common: []
     debug: []
@@ -102,7 +102,7 @@ props:
         sdkpostinstallcommands: ''
         sdkpreinstallcommands: ''
         targetcommands: ''
-        targetfiles: ''
+        targetfiles: ENTRYPOINT mkdir /bbb && /usr/sbin/sshd -D
     debug:
         arg: 'ARG SSHUSERNAME=#%application.username%#
 
@@ -129,5 +129,6 @@ startupscript:
 username: torizon
 volumes:
     common: {}
-    debug: {}
+    debug:
+        /home/torizon/dotnetConsole: /dotnetConsole,rw
     release: {}
