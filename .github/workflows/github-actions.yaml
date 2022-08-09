@@ -42,7 +42,7 @@ jobs:
          -
             name: Load Application
             run: |
-               APPID=$(./moses-linux/tdskt load ../appconfig_0/)
+               APPID=$(./moses-linux/tdskt load ./appconfig_0/)
                echo "APPID=$APPID" >> $GITHUB_ENV
          -
             name: Build Application
