@@ -42,15 +42,13 @@ jobs:
          -
             name: Load Application
             run: |
-               APPID=$(./tdskt load ../appconfig_0/)
+               APPID=$(./moses-linux/tdskt load ../appconfig_0/)
                echo "APPID=$APPID" >> $GITHUB_ENV
          -
             name: Build Application
             run: |
-               cd .. 
                docker run --rm -t -v ${PWD}:/workspaces/${{ github.event.repository.name }} --env-file ./appconfig_0/containerEnv mcr.microsoft.com/dotnet/sdk:6.0 bash -c 'cd /workspaces/${{ github.event.repository.name }} && dotnet build ./dotnetConsole.csproj && dotnet publish -r linux-arm -o ./appconfig_0/work/dotnetConsole ./dotnetConsole.csproj'
          -
             name: Run application
             run: |
-               cd ..
                ./moses-linux/tdskt -p application ${{ env.APPID }} build release
